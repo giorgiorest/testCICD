@@ -1,0 +1,5 @@
+name: Esercizio1
+on:
+    workflow_dispatch
+jobs:
+    

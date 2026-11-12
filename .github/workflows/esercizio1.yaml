@@ -1,6 +1,6 @@
 name: Esercizio1
 on:
-    workflow_dispatch
+    workflow_dispatch:
 jobs:
    prova:
       runs-on: ubuntu-latest

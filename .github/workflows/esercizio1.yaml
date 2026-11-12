@@ -10,4 +10,4 @@ jobs:
       steps:
          - run: echo ${{github.actor}} is testing out GitHub Actions 🚀
          - run: echo Il branch ${{github.ref}}
-         - run: echo  '${{ toJSON(github.ref) }}'
+         - run: echo  '${{ toJSON(github) }}'

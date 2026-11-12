@@ -1,0 +1,17 @@
+name: 5 Matrice
+on:
+   workflow_dispatch:
+jobs:
+   prova-matrice:
+      runs-on: ubuntu-latest
+      strategy:
+         fail-fast: false
+         matrix:
+            os: [ubuntu-latest, windows-latest]
+            java: [17, 21]
+            exclude:
+               - os: windows-latest
+                 java: 17
+      steps:
+         - id: set-version
+           run: echo "v=1.0.${{ github.run_number }}" >> "$GITHUB_OUTPUT"  

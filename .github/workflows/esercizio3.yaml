@@ -1,4 +1,4 @@
-name: Avvio manuale e Input
+name: 3 Avvio manuale e Input
 run-name: Eseguo il deploy in modalità ${{inputs.dry-run == 'true' && 'dry-run' || 'reale'}} in ambiente ${{inputs.ambiente}}
 on:
    workflow_dispatch:

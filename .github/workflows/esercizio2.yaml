@@ -1,4 +1,4 @@
-name: Esercizio2
+name: 2 Push
 on:
    push:
       branches:

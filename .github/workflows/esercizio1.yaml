@@ -8,4 +8,5 @@ jobs:
    prova:
       runs-on: ubuntu-latest
       steps:
-         - run: echo "{{github.actor}} is testing out GitHub Actions 🚀"
+         - run: echo "${{github.actor}} is testing out GitHub Actions 🚀"
+         - run: echo "Il branch ${{github.ref}} "

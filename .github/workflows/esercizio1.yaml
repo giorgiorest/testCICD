@@ -5,5 +5,4 @@ jobs:
    prova:
       runs-on: ubuntu-latest
       steps:
-         - name: 'prova stampa'
-         - run: echo 'funziona'
+         - run: echo 'prova'

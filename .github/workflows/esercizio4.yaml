@@ -16,3 +16,6 @@ jobs:
          - run: echo "Build in corso per la versione ${{ needs.versione.outputs.version }}"
    allarme:
       runs-on: ubuntu-latest
+      needs: [build]
+      steps:
+         - run: echo "Build fallita per la versione. Inviare allarme al team di sviluppo"

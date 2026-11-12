@@ -1,0 +1,24 @@
+name: Avvio manuale e Input
+run-name: Eseguo il deploy in modalità ${{inputs.dry-run == 'true' && 'dry-run' || 'reale'}} in ambiente ${{inputs.ambiente}}
+on:
+   workflow_dispatch:
+      inputs:
+         ambiente:
+            type: choice
+            options:
+               - dev
+               - prod
+            required: true
+            default: 'dev'
+         dry-run:
+            type: boolean
+            required: false
+            default: true
+jobs:
+   deploy:
+      runs-on: ubuntu-latest
+      steps:
+         - if: ${{ inputs.dry-run == 'true' }}
+           run: echo "Eseguo il deploy in modalità dry-run" in ambiente ${{inputs.ambiente}}
+         - if: ${{ inputs.dry-run == 'false' }}
+           run: echo "Eseguo il deploy reale" in ambiente ${{inputs.ambiente}}

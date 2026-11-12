@@ -3,7 +3,7 @@ on:
    workflow_dispatch:
 jobs:
    prova-matrice:
-      runs-on: ubuntu-latest
+      runs-on: ${{matrix.os}}
       strategy:
          fail-fast: false
          matrix:
@@ -13,5 +13,10 @@ jobs:
                - os: windows-latest
                  java: 17
       steps:
-         - id: set-version
-           run: echo "v=1.0.${{ github.run_number }}" >> "$GITHUB_OUTPUT"  
+         - uses: actions/setup-java@v3
+           with:
+              distribution: 'temurin'
+              java-version: ${{ matrix.java }}
+         - run: java -version
+         - if: ${{ matrix.os == 'windows-latest' && matrix.java == 21 }}
+           run: exit 1

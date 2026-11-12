@@ -2,4 +2,8 @@ name: Esercizio1
 on:
     workflow_dispatch
 jobs:
-    
+   prova:
+      run-on: ubuntu-latest
+      steps:
+         -name: 'prova stampa'
+         run: echo 'funziona'

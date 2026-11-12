@@ -19,7 +19,6 @@ Breve descrizione del progetto.
 
 ## Utilizzo
 
-
 ```bash
 # Inserisci qui un esempio d'uso
 ```

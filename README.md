@@ -33,6 +33,3 @@ Breve descrizione del progetto.
 
 Indica come contribuire al progetto.
 
-## Licenza
-
-Specifica la licenza del progetto.

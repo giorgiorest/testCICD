@@ -15,4 +15,7 @@ jobs:
            run: echo "2) $LIVELLO"
          - run: echo "PROVA=step" >> $GITHUB_ENV
          - run: echo "$PROVA"
+         - run: |
+            echo "Riepilogo" >> "$GITHUB_STEP_SUMMARY"
+            echo "Testo: $PROVA" >> "$GITHUB_STEP_SUMMARY"
             

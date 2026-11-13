@@ -16,6 +16,10 @@ jobs:
               cache: maven
          - run: mvn -B package -DskipTests
            working-directory: ./prova
+         - uses: actions/upload-artifact@v6
+           with:
+              name: jar
+              path: ./prova/target/*.jar
    image:
       runs-on: ubuntu-latest
       permissions:
@@ -25,6 +29,10 @@ jobs:
          id-token: write
       steps:
          - uses: actions/checkout@v6
+         - uses: actions/download-artifact@v6
+           with:
+              name: jar
+              path: ./prova/target
          - uses: docker/login-action@v2
            with:
               registry: ${{ env.REGISTRY }}

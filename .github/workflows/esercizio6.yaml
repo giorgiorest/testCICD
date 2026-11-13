@@ -1,0 +1,18 @@
+name: 6 Variabili
+on:
+   workflow_dispatch:
+env:
+   LIVELLO: workflow
+jobs:
+   vars:
+      runs-on: ubuntu-latest
+      env:
+         LIVELLO: job
+      steps:
+         - run: echo "1) $LIVELLO"
+         - env:
+            LIVELLO: step
+           run: echo "2) $LIVELLO"
+         - run: echo "PROVA=step" >> $GITHUB_ENV
+         - run: echo "$PROVA"
+            

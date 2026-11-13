@@ -1,0 +1,22 @@
+name: Riusabile
+on:
+   workflow_call:
+      inputs:
+         nome:
+            type: string
+            required: true
+      outputs:
+         risultato:
+            value: ${{ jobs.j.outputs.r }}
+jobs:
+   j:
+      runs-on: ubuntu-latest
+      outputs:
+         r: ${{ steps.s.outputs.saluto }}
+      steps:
+         - uses: actions/checkout@v6
+         - uses: ./.github/actions/saluta
+           id: s
+           with:
+              nome: ${{ inputs.nome }}
+   

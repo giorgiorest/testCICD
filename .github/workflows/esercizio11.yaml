@@ -5,6 +5,17 @@ env:
    REGISTRY: ghcr.io
    IMAGE_NAME: ${{ github.repository }}
 jobs:
+   build:
+      runs-on: ubuntu-latest
+      steps:
+         - uses: actions/checkout@v6
+         - uses: actions/setup-java@v6
+           with:
+              distribution: 'temurin'
+              java-version: 21
+              cache: maven
+         - run: mvn -B package -DskipTests
+           working-directory: ./prova
    image:
       runs-on: ubuntu-latest
       permissions:
@@ -20,11 +31,11 @@ jobs:
               username: ${{ github.actor }}
               password: ${{ secrets.GITHUB_TOKEN }}
          - id: meta
-           uses: dokcer/metadata-action@v4
+           uses: dokcer/metadata-action@v6
            with:
               images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
          - id: push
-           uses: docker/build-push-action@v5
+           uses: docker/build-push-action@v6
            with:
               context: ./prova
               push: true

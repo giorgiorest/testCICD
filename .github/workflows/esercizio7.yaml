@@ -1,4 +1,4 @@
-name: 6 Environmets con approvazione
+name: 7 Environmets con approvazione
 on:
    workflow_dispatch:
 jobs:
@@ -10,7 +10,7 @@ jobs:
       needs: build
       environment:
          name: produzione
-         url: ${{ vars.APP_URL }}
+         url: ${{ vars.URL_APP }}
       runs-on: ubuntu-latest
       steps:
          - env: 

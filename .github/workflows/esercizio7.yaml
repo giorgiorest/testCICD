@@ -1,0 +1,20 @@
+name: 6 Environmets con approvazione
+on:
+   workflow_dispatch:
+jobs:
+   build:
+      runs-on: ubuntu-latest
+      steps:
+         - run: echo "Build OK"
+   deploy:
+      needs: build
+      environment:
+         name: produzione
+         url: ${{ vars.APP_URL }}
+      runs-on: ubuntu-latest
+      steps:
+         - env: 
+            APY_KEY: ${{ secrets.API_KEY }}
+           run: |
+            echo "Chiave API: $APY_KEY"
+            echo "Lunghezza chiave: ${#APY_KEY}"

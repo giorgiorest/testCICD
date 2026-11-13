@@ -16,7 +16,7 @@ jobs:
          - uses: actions/upload-artifact@v7
            with:
               name: jar
-              target: prova/target/*.jar
+              path: prova/target/*.jar
               retention-days: 1
    verifica:
       needs: build

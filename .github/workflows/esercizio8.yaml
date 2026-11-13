@@ -12,6 +12,7 @@ jobs:
               java-version: 21
               cache: maven
          - run: mvn -B package -DskipTests
+           working-directory: ./prova
          - uses: actions/upload-artifact@v7
            with:
               name: jar
